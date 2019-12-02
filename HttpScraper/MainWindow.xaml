@@ -1,0 +1,65 @@
+﻿<Controls:MetroWindow x:Class="HttpScraper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Title="Listedin.com Emails" Height="500" Width="550"
+        Loaded="Window_Loaded">
+    
+        <Grid Margin="7">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+            <TextBox Name="searchtxt" MouseDoubleClick="searchtxt_MouseDoubleClick" Controls:TextBoxHelper.Watermark="Place Only ListIn Url Link Here..." 
+                             Margin="5" Grid.Column="0" Grid.Row="0"></TextBox>
+            <Button Name="searchbtn" Click="searchbtn_Click" Grid.Column="1" Grid.Row="0" Margin="5" Padding="5">Search</Button>
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                <TextBlock VerticalAlignment="Center" Margin="5">From Page:</TextBlock>
+                <TextBox Name="from_value_txtbx" Width="27" Margin="3" IsEnabled="False"></TextBox>
+                <TextBlock VerticalAlignment="Center" Margin="5">To</TextBlock>
+                <TextBox Name="to_value_txtbx" Width="27" Margin="3" IsEnabled="False"></TextBox>
+            </StackPanel>
+            <CheckBox Name="auto_append_chkbx" Grid.Row="1" Grid.Column="1" Margin="5" Click="auto_append_chkbx_Checked">automatic appending</CheckBox>
+            </Grid>
+            <StackPanel Grid.Row="1" Margin="15,5" >
+                <TextBlock TextAlignment="Center" Padding="5" FontSize="18">Emails</TextBlock>
+                <ScrollViewer>
+                    <ListView ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MinHeight="200" MaxHeight="200"  Name="celistview" HorizontalContentAlignment="Center">
+
+                    </ListView>
+                </ScrollViewer>
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBox Name="filenameappend_txt" Grid.Row="0" Grid.Column="0" Margin="5"></TextBox>
+                    <Button Name="browsefile_btn" Click="browsefile_btn_Click" Margin="5" Padding="5" Grid.Row="0" Grid.Column="1">browse file to append</Button>
+                    <Button Name="savefile_btn" Click="savefile_btn_Click" Grid.Row="1" Grid.ColumnSpan="2" Margin="5">Save as new</Button>
+                </Grid>
+            <ProgressBar Width="300"  Name="total_progressbar" Visibility="Hidden"></ProgressBar>
+            <ProgressBar Name="progressbar" Margin="7" Visibility="Hidden"></ProgressBar>
+            </StackPanel>
+        </Grid>
+    
+        
+    
+    
+</Controls:MetroWindow>
